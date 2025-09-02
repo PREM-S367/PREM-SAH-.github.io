@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREM SAH - Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /*
+            Professional Landing Page - Integrated Styles
+            ---
+            This stylesheet is built for a heavy-design, high-impact landing page.
+            It features a dark, luxurious color palette with vibrant accents,
+            fluid layouts, and bold typography. The design emphasizes
+            the creative professional, with the image serving as a central,
+            dynamic visual element.
+        */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&family=Cutive+Mono&display=swap');
+
+        /*
+            Color Palette & Variables
+            A sleek, dark theme with sophisticated accents.
+        */
+        :root {
+            --bg-dark-blue: #10102a;
+            --bg-dark-purple: #25103a;
+            --bg-card: #1c1c27;
+            --text-light: #e0e0e0;
+            --accent-green: #00ffc8;
+            --accent-purple: #952aff;
+            --border-subtle: #333345;
+        }
+
+        /*
+            General Body and Layout
+            The main body is designed to be a single-page immersive experience.
+        */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, var(--bg-dark-blue), var(--bg-dark-purple));
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /*
+            Header and Navigation
+            A fixed, minimal header that provides quick navigation.
+        */
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background-color: #10102a;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.25rem;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-shadow: 0 0 10px var(--accent-green);
+            transition: all 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px var(--accent-green);
+        }
+        .nav-link {
+            font-weight: 600;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        /* NEW: This is the core fix. It applies the highlight on hover and for the active link */
+        .nav-link:hover, .nav-link.active-highlight {
+            color: #ffffff;
+            text-shadow: 0 0 10px #00ffc8, 0 0 20px #952aff;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--accent-green), #00ff66);
+            transition: width 0.3s ease-out, left 0.3s ease-out;
+        }
+
+        /* NEW: Apply the animated underline effect on hover and for the active link */
+        .nav-link:hover::after, .nav-link.active-highlight::after {
+            width: 100%;
+            left: 0;
+            background: linear-gradient(90deg, #00ffcc, #952aff);
+            animation: highlight-pulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes highlight-pulse {
+            from { background: linear-gradient(90deg, #00ffcc, #952aff); }
+            to { background: linear-gradient(90deg, #952aff, #00ffcc); }
+        }
+
+        /*
+            Main Content Section
+            Uses flexbox to place content and image side-by-side.
+        */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* FIX: Increased padding to push content down below the fixed header */
+            padding-top: 8rem;  
+            min-height: 100vh;
+        }
+
+        /*
+            Left Content Area (Text)
+            Styled for maximum impact and readability.
+        */
+        .content-area {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .tagline {
+            font-family: 'Cutive Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--accent-green);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .main-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #00ffcc, #00ff66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
+            animation: text-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes text-glow {
+            from { text-shadow: 0 0 10px rgba(0, 255, 102, 0.4), 0 0 20px rgba(0, 255, 204, 0.2); }
+            to { text-shadow: 0 0 20px rgba(0, 255, 102, 0.6), 0 0 40px rgba(0, 255, 204, 0.4); }
+        }
+        
+        /* Highlight and underline effect for key phrases */
+        .highlight {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        .highlight:hover {
+            color: var(--accent-green);
+        }
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #00ffcc, #00ff66);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: -1;
+        }
+        .highlight:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .sub-text {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 600px;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /*
+            Right Content Area (Image)
+            The image is now the central, large element on the right.
+        */
+        .image-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .photo-frame {
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 40px rgba(0, 255, 102, 0.5), inset 0 0 20px rgba(0, 255, 204, 0.3);
+            border: 4px solid transparent;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: border-pulse 4s infinite ease-in-out;
+            background: var(--bg-card);
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(2deg) translateZ(20px);
+        }
+
+        @keyframes border-pulse {
+            0%, 100% { border-color: #00ff66; box-shadow: 0 0 30px #00ff66; }
+            50% { border-color: #00ffcc; box-shadow: 0 0 30px #00ffcc; }
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: filter 0.5s ease;
+        }
+
+        .photo-frame:hover img {
+            filter: grayscale(100%) contrast(1.2);
+        }
+
+        /*
+            Buttons & Interaction
+            Bold, animated buttons that stand out.
+        */
+        .btn {
+            padding: 0.75rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00ffcc, #00ff66);
+            color: var(--bg-dark);
+            border: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /*
+            Common Section Styles
+            Consistent padding, spacing, and headings for all sections.
+        */
+        .section {
+            padding: 2.5rem 1.5rem;
+        }
+        /* FIX: Added top padding to section to ensure headings are below the fixed header */
+        .section:first-of-type {
+            padding-top: 8rem;
+        }
+        
+        /* Updated section headings for the new color */
+        .section-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-align: center;
+            /* Changed color to a blue gradient to match the requested design */
+            background: linear-gradient(45deg, #00aaff, #4d88ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 170, 255, 0.5), 0 0 25px rgba(77, 136, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .section-heading:hover {
+            transform: scale(1.02) translateZ(10px);
+        }
+
+        .card {
+            background: linear-gradient(135deg, #1c1c27, #2c2c3e, #1c1c27);
+            background-size: 200% 200%;
+            animation: gradient-shift 10s ease-in-out infinite;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card:hover {
+            transform: translateY(-10px) translateZ(15px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card p {
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /*
+            Footer
+            A clean, minimal footer.
+        */
+        footer {
+            background-color: var(--bg-card);
+            padding: 1.5rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            margin-top: auto;
+        }
+        .social-link {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .social-link:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 10px var(--accent-green));
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (min-width: 1024px) {
+            .main-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 2rem;
+            }
+            .content-area, .image-area {
+                padding: 0;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .main-heading {
+                text-align: left;
+            }
+            .sub-text {
+                margin: 0;
+            }
+            .action-buttons {
+                justify-content: flex-start;
+            }
+        }
+        
+        /* Styles for moving star background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background-color: #ffffff;
+            border-radius: 50%;
+            opacity: 0; /* Starts hidden to animate in */
+            transition: opacity 1s ease-in-out;
+        }
+        /* Optional: Add a twinkling effect if desired */
+        .star.twinkle {
+            animation: twinkle 2s ease-in-out infinite alternate;
+        }
+        @keyframes twinkle {
+            from { opacity: 0.2; }
+            to { opacity: 0.8; }
+        }
+
+        /* Styles for collision effect */
+        .collision {
+            position: absolute;
+            background-color: #00ffcc; /* Bright, energetic color for collision */
+            border-radius: 50%;
+            animation: pulse-and-fade 1s ease-in-out forwards;
+        }
+        @keyframes pulse-and-fade {
+            0% { transform: scale(0.1); opacity: 1; box-shadow: 0 0 10px #00ffcc; }
+            50% { transform: scale(1.5); opacity: 0.8; box-shadow: 0 0 20px #00ffcc; }
+            100% { transform: scale(2); opacity: 0; box-shadow: 0 0 30px #00ffcc; }
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+    
+    <div class="stars" id="star-container"></div>
+
+    <div class="relative z-10">
+        <header>
+            <div class="container mx-auto flex justify-between items-center py-4 px-6 md:px-0">
+                <div class="logo">PREM SAH</div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link active-highlight">About Me</a>
+                    <a href="skills.html" class="nav-link">Skills</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <button class="md:hidden text-white text-2xl focus:outline-none">&#9776;</button>
+            </div>
+        </header>
+
+        <section id="about" class="section container mx-auto px-6">
+            <h2 class="section-heading">About Me</h2>
+            <div class="flex flex-col md:flex-row items-start justify-center gap-8">
+                <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+                    <div class="photo-frame w-4/5 max-w-lg">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\cfg.jpg" alt="Prem Sah's Photo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 card p-8 font-mono">
+                    <p class="mb-4 text-xl font-light leading-relaxed">
+                        I am a passionate and dedicated Computer Engineer with a knack for solving complex problems through elegant code.<br>  
+                        My journey in technology began with a fascination for how software can shape the world, and it has since evolved into a career focused on building efficient, scalable, and innovative solutions.<br>  
+                        I thrive on challenges—whether it’s developing new applications, optimizing existing systems, or exploring the realms of machine learning and data science.<br><br>  
+
+                        Outside of my technical world, I love exploring new places, trying different cuisines, and going on treks that bring me closer to nature.<br>  
+                        Cooking, traveling, and listening to music keep me energized, while movies help me relax after a long day.<br>  
+                        I also have a great interest in comedy and humor—I enjoy cracking jokes and making people laugh, as it brings positivity and lightness to any environment.<br><br>  
+
+                        This balance of professional dedication and personal enthusiasm helps me stay creative, motivated, and connected with people around me.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="section container mx-auto px-6">
+            <h2 class="section-heading">Certificates & Achievements</h2>
+            <p class="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
+                Showcasing some of the skills and certifications I have earned along my journey.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-4 flex flex-col items-center justify-center">
+                    <div class="w-full rounded-xl overflow-hidden mb-4 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\udemy.png" alt="Certificate of achievement" class="w-full object-contain">
+                    </div>
+                    <p class="text-center font-semibold text-lg"> CSS, Bootstrap And JavaScript And Python Stack Course</p>
+                    <p class="text-center text-sm text-gray-400">Udemy</p>
+                </div>
+
+                <div class="card p-4 flex flex-col items-center justify-center">
+                    <div class="w-full rounded-xl overflow-hidden mb-4 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\basic.png" alt="Certificate of achievement" class="w-full object-contain">
+                    </div>
+                    <p class="text-center font-semibold text-lg"> Basics of python</p>
+                    <p class="text-center text-sm text-gray-400">Coding Ninja</p>
+                </div>
+
+                <div class="card p-4 flex flex-col items-center justify-center">
+                    <div class="w-full rounded-xl overflow-hidden mb-4 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\advance.png" class="w-full object-contain">
+                    </div>
+                    <p class="text-center font-semibold text-lg"> Data structures & algorithms (Beginner to Intermediate</p>
+                    <p class="text-center text-sm text-gray-400">Coding Ninja</p>
+                </div>
+
+                <div class="card p-4 flex flex-col items-center justify-center">
+                    <div class="w-full rounded-xl overflow-hidden mb-4 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\sql.png" alt="Certificate of achievement" class="w-full object-contain">
+                    </div>
+                    <p class="text-center font-semibold text-lg"> The Complete MySQL Bootcamp: Go from Beginner to Expert</p>
+                    <p class="text-center text-sm text-gray-400">Udemy </p>
+                </div>
+
+
+                <div class="card p-4 flex flex-col items-center justify-center">
+                    <div class="w-full rounded-xl overflow-hidden mb-4 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\graet learning.png" alt="Certificate of achievement" class="w-full object-contain">
+                    </div>
+                    <p class="text-center font-semibold text-lg"> Data Science Foundations</p>
+                    <p class="text-center text-sm text-gray-400">Great Learning Academy.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
+                <p>&copy; 2024 PREM SAH. All rights reserved.</p>
+                <div class="social-links mt-4 md:mt-0 flex gap-4">
+                    <a href="https://www.linkedin.com/in/prem-sah-882884279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                    <a href="https://www.instagram.com/premsah_003?igsh=OTk0aTJpN3VrMTNn" target="_blank" aria-label="Instagram" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                    <a href="https://www.facebook.com/prem.sah.260002" target="_blank" aria-label="Facebook" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('star-container');
+            const numberOfStars = 200; // Increased star count
+            const stars = [];
+
+            function createStar() {
+                // Increased size range for better visibility
+                const size = Math.random() * 5 + 3; // 3px to 8px
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                // Increased speed for more noticeable movement
+                const vx = (Math.random() - 0.5) * 1.5; // -0.75 to 0.75
+                const vy = (Math.random() - 0.5) * 1.5; // -0.75 to 0.75
+
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+
+                container.appendChild(star);
+                stars.push({
+                    element: star,
+                    x: x,
+                    y: y,
+                    vx: vx,
+                    vy: vy,
+                    size: size
+                });
+            }
+
+            for (let i = 0; i < numberOfStars; i++) {
+                createStar();
+            }
+
+            function createCollisionEffect(x, y) {
+                const collision = document.createElement('div');
+                collision.classList.add('collision');
+                collision.style.left = `${x}px`;
+                collision.style.top = `${y}px`;
+                container.appendChild(collision);
+
+                setTimeout(() => {
+                    collision.remove();
+                }, 1000); // Remove the collision element after 1 second
+            }
+
+            function animate() {
+                for (let i = 0; i < stars.length; i++) {
+                    const star1 = stars[i];
+
+                    // Update star position
+                    star1.x += star1.vx;
+                    star1.y += star1.vy;
+
+                    // Wrap around screen boundaries
+                    if (star1.x < -20) star1.x = window.innerWidth + 20;
+                    if (star1.x > window.innerWidth + 20) star1.x = -20;
+                    if (star1.y < -20) star1.y = window.innerHeight + 20;
+                    if (star1.y > window.innerHeight + 20) star1.y = -20;
+
+                    // Set position and show star
+                    star1.element.style.left = `${star1.x}px`;
+                    star1.element.style.top = `${star1.y}px`;
+                    star1.element.style.opacity = '1';
+
+                    // Check for collisions with other stars
+                    for (let j = i + 1; j < stars.length; j++) {
+                        const star2 = stars[j];
+                        const distance = Math.sqrt(Math.pow(star1.x - star2.x, 2) + Math.pow(star1.y - star2.y, 2));
+
+                        // Adjusted collision distance for more visible and frequent collisions
+                        const collisionDistance = (star1.size + star2.size) * 15; 
+
+                        if (distance < collisionDistance) {
+                            // Collision detected
+                            const midX = (star1.x + star2.x) / 2;
+                            const midY = (star1.y + star2.y) / 2;
+                            createCollisionEffect(midX, midY);
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        });
+    </script>
+</body>
+</html>
