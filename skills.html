@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREM SAH - Skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        /*
+            Professional Landing Page - Integrated Styles
+            ---
+            This stylesheet is built for a heavy-design, high-impact landing page.
+            It features a dark, luxurious color palette with vibrant accents,
+            fluid layouts, and bold typography. The design emphasizes
+            the creative professional, with the image serving as a central,
+            dynamic visual element.
+        */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&family=Cutive+Mono&display=swap');
+
+        /*
+            Color Palette & Variables
+            A sleek, dark theme with sophisticated accents.
+        */
+        :root {
+            --bg-dark: #10101a;
+            --bg-card: #1c1c27;
+            --text-light: #e0e0e0;
+            --accent-green: #00ffc8;
+            --accent-purple: #952aff;
+            --border-subtle: #333345;
+        }
+
+        /*
+            General Body and Layout
+            The main body is designed to be a single-page immersive experience.
+        */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /*
+            Header and Navigation
+            A fixed, minimal header that provides quick navigation.
+        */
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(16, 16, 26, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.25rem;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-shadow: 0 0 10px var(--accent-green);
+            transition: all 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px var(--accent-green);
+        }
+        .nav-link {
+            font-weight: 600;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-purple));
+            transition: width 0.3s ease-out, left 0.3s ease-out;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /*
+            Main Content Section
+            Uses flexbox to place content and image side-by-side.
+        */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 5rem;
+            min-height: 100vh;
+        }
+
+        /*
+            Left Content Area (Text)
+            Styled for maximum impact and readability.
+        */
+        .content-area {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .tagline {
+            font-family: 'Cutive Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--accent-green);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .main-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+            animation: text-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes text-glow {
+            from { text-shadow: 0 0 10px rgba(0, 255, 200, 0.4), 0 0 20px rgba(149, 42, 255, 0.2); }
+            to { text-shadow: 0 0 20px rgba(0, 255, 200, 0.6), 0 0 40px rgba(149, 42, 255, 0.4); }
+        }
+
+        .sub-text {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 600px;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /*
+            Right Content Area (Image)
+            The image is now the central, large element on the right.
+        */
+        .image-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .photo-frame {
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 40px rgba(0, 255, 200, 0.5), inset 0 0 20px rgba(149, 42, 255, 0.3);
+            border: 4px solid var(--accent-green);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: border-pulse 4s infinite ease-in-out;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        @keyframes border-pulse {
+            0%, 100% { border-color: var(--accent-green); box-shadow: 0 0 30px var(--accent-green); }
+            50% { border-color: var(--accent-purple); box-shadow: 0 0 30px var(--accent-purple); }
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: filter 0.5s ease;
+        }
+
+        .photo-frame:hover img {
+            filter: grayscale(100%) contrast(1.2);
+        }
+
+        /*
+            Buttons & Interaction
+            Bold, animated buttons that stand out.
+        */
+        .btn {
+            padding: 0.75rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+            color: var(--bg-dark);
+            border: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /*
+            Common Section Styles
+            Consistent padding, spacing, and headings for all sections.
+        */
+        .section {
+            padding: 2.5rem 1.5rem;
+        }
+        .section-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 255, 200, 0.5), 0 0 25px rgba(149, 42, 255, 0.3);
+        }
+        .card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /*
+            Footer
+            A clean, minimal footer.
+        */
+        footer {
+            background-color: var(--bg-card);
+            padding: 1.5rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            margin-top: auto;
+        }
+        .social-link {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .social-link:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 10px var(--accent-green));
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (min-width: 1024px) {
+            .main-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 2rem;
+            }
+            .content-area, .image-area {
+                padding: 0;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .main-heading {
+                text-align: left;
+            }
+            .sub-text {
+                margin: 0;
+            }
+            .action-buttons {
+                justify-content: flex-start;
+            }
+        }
+        /* Skills section background and animation */
+        #skills {
+            position: relative;
+            z-index: 1; /* Ensure content is on top */
+            background: transparent; /* No background image for this section */
+        }
+        /* Canvas for Three.js background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>
+    <div class="relative z-10">
+        <header>
+            <div class="container mx-auto flex justify-between items-center py-4 px-6 md:px-0">
+                <div class="logo">PREM SAH</div>
+                <nav class="hidden md:flex space-x-8">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About Me</a>
+    <a href="skills.html" class="nav-link active">Skills</a>
+    <a href="projects.html" class="nav-link">Projects</a>
+    <a href="gallery.html" class="nav-link">Gallery</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+</nav>
+                <button class="md:hidden text-white text-2xl focus:outline-none">&#9776;</button>
+            </div>
+        </header>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section container mx-auto px-6 text-center">
+            <h2 class="section-heading">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Frontend Development</h3>
+                    <p class="text-base text-gray-300">Skilled in building responsive and interactive web interfaces using <strong class="text-yellow-300">HTML5</strong>, <strong class="text-blue-400">CSS3</strong>, and <strong class="text-yellow-400">JavaScript</strong>. Experience in creating modern layouts, optimizing user experience, and ensuring cross-browser compatibility.</p>
+                </div>
+                <div class="card p-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Backend Development</h3>
+                    <p class="text-base text-gray-300">Experienced in developing robust server-side applications using <strong class="text-green-400">Python</strong>. Skilled in <strong class="text-blue-300">Database Management</strong> with <strong class="text-green-500">MongoDB</strong> and <strong class="text-blue-500">PostgreSQL</strong>, and proficient in designing and integrating <strong class="text-red-400">RESTful APIs</strong> to ensure seamless communication between frontend and backend systems.</p>
+                </div>
+                <div class="card p-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Digital Marketing</h3>
+                    <p class="text-base text-gray-300">Skilled in <strong class="text-pink-400">Digital Marketing</strong> strategies, including <strong class="text-pink-400">Social Media Analytics</strong>, content optimization, and audience engagement. Proficient in <strong class="text-red-500">Canva</strong> for designing impactful graphics, creatives, and marketing campaigns that enhance brand visibility and drive results.</p>
+                </div>
+                <div class="card p-8 col-span-1 md:col-span-2 lg:col-span-3 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Other Skills</h3>
+                    <p class="text-base text-gray-300">Experienced with <strong class="text-yellow-500">Agile methodologies</strong> and <strong class="text-yellow-500">Project Management</strong>, with strong teamwork and adaptability. Driven by a continuous passion for learning new technologies and applying them to real-world problem-solving.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
+                <p>&copy; 2024 PREM SAH. All rights reserved.</p>
+                <div class="social-links mt-4 md:mt-0 flex gap-4">
+                    <a href="https://www.linkedin.com/in/prem-sah-882884279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                    <a href="https://www.instagram.com/premsah_003?igsh=OTk0aTJpN3VrMTNn" target="_blank" aria-label="Instagram" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                    <a href="https://www.facebook.com/prem.sah.260002" target="_blank" aria-label="Facebook" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        window.onload = function () {
+            // Three.js setup for the background animation
+            const canvas = document.getElementById('bg-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+
+            // Create a star field
+            const starCount = 1500;
+            const starGeometry = new THREE.BufferGeometry();
+            const positions = [];
+            const colors = [];
+            const color = new THREE.Color();
+
+            for (let i = 0; i < starCount; i++) {
+                // Random position within a sphere
+                positions.push(THREE.MathUtils.randFloatSpread(500));
+                positions.push(THREE.MathUtils.randFloatSpread(500));
+                positions.push(THREE.MathUtils.randFloatSpread(500));
+
+                // Random color for each star, leaning towards white/blue/purple
+                color.setHSL(Math.random() * 0.2 + 0.6, 1, 0.8 + Math.random() * 0.2); // HSL for color (Hue, Saturation, Lightness)
+                colors.push(color.r, color.g, color.b);
+            }
+
+            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+            const starMaterial = new THREE.PointsMaterial({
+                size: 1,
+                vertexColors: true,
+                transparent: true,
+                blending: THREE.AdditiveBlending,
+                sizeAttenuation: true
+            });
+
+            const stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+
+            // Create constellations (lines between stars)
+            const constellationLines = [];
+            const lineMaterial = new THREE.LineBasicMaterial({
+                color: 0x952aff,
+                transparent: true,
+                opacity: 0.3,
+                blending: THREE.AdditiveBlending
+            });
+
+            // Randomly connect some stars
+            for (let i = 0; i < 50; i++) {
+                const star1Index = Math.floor(Math.random() * starCount);
+                const star2Index = Math.floor(Math.random() * starCount);
+                const star1Pos = new THREE.Vector3(positions[star1Index * 3], positions[star1Index * 3 + 1], positions[star1Index * 3 + 2]);
+                const star2Pos = new THREE.Vector3(positions[star2Index * 3], positions[star2Index * 3 + 1], positions[star2Index * 3 + 2]);
+                const geometry = new THREE.BufferGeometry().setFromPoints([star1Pos, star2Pos]);
+                const line = new THREE.Line(geometry, lineMaterial);
+                scene.add(line);
+                constellationLines.push(line);
+            }
+
+            camera.position.z = 100;
+
+            // "Black hole" effect: animate camera and stars
+            let mouseX = 0;
+            let mouseY = 0;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Rotate the star field
+                stars.rotation.x += 0.0005;
+                stars.rotation.y += 0.0005;
+
+                // Move stars towards a central point to create vortex/black hole effect
+                const starPositions = starGeometry.attributes.position.array;
+                for (let i = 0; i < starCount; i++) {
+                    const x = starPositions[i * 3];
+                    const y = starPositions[i * 3 + 1];
+                    const z = starPositions[i * 3 + 2];
+                    const dist = Math.sqrt(x * x + y * y + z * z);
+                    const speed = 0.0005; // Adjust this for speed
+
+                    // A slight inward pull, stronger closer to the center
+                    starPositions[i * 3] -= (x / dist) * speed * dist * 0.1;
+                    starPositions[i * 3 + 1] -= (y / dist) * speed * dist * 0.1;
+                    starPositions[i * 3 + 2] -= (z / dist) * speed * dist * 0.1;
+
+                    // If a star gets too close, reset it to a new random position
+                    if (dist < 10) {
+                        starPositions[i * 3] = THREE.MathUtils.randFloatSpread(500);
+                        starPositions[i * 3 + 1] = THREE.MathUtils.randFloatSpread(500);
+                        starPositions[i * 3 + 2] = THREE.MathUtils.randFloatSpread(500);
+                    }
+                }
+                starGeometry.attributes.position.needsUpdate = true;
+
+                // Animate constellation lines
+                constellationLines.forEach(line => {
+                    line.rotation.x += 0.001;
+                    line.rotation.y += 0.001;
+                });
+
+                // Animate camera for a subtle parallax effect
+                camera.position.x += (mouseX * 50 - camera.position.x) * 0.05;
+                camera.position.y += (-mouseY * 50 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        };
+    </script>
+</body>
+</html>
