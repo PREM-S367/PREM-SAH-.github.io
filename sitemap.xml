@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <!-- Homepage -->
   <url>
     <loc>https://prem-sah-github-io.vercel.app/</loc>
     <priority>1.0</priority>
   </url>
 
-  <!-- Example extra pages (add only if they exist in your site) -->
+  <!-- About Me -->
   <url>
     <loc>https://prem-sah-github-io.vercel.app/about.html</loc>
     <priority>0.8</priority>
   </url>
 
+  <!-- Skills -->
+  <url>
+    <loc>https://prem-sah-github-io.vercel.app/skills.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Projects -->
   <url>
     <loc>https://prem-sah-github-io.vercel.app/projects.html</loc>
     <priority>0.8</priority>
   </url>
 
+  <!-- Gallery -->
+  <url>
+    <loc>https://prem-sah-github-io.vercel.app/gallery.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact -->
   <url>
     <loc>https://prem-sah-github-io.vercel.app/contact.html</loc>
     <priority>0.8</priority>
   </url>
+
 </urlset>
