@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREM SAH - Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /*
+            Gallery Page Styles
+            ---
+            This stylesheet extends the main site's design to create a beautiful,
+            responsive gallery page. It includes a grid layout for images,
+            stylish hover effects, and a lightbox for viewing full-size images.
+            The design maintains the dark theme and vibrant accent colors.
+        */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&family=Cutive+Mono&display=swap');
+
+        /* Color Palette & Variables from main page */
+        :root {
+            --bg-dark-blue: #10102a;
+            --bg-dark-purple: #25103a;
+            --bg-card: #1c1c27;
+            --text-light: #e0e0e0;
+            --accent-green: #00ffc8;
+            --accent-purple: #952aff;
+            --border-subtle: #333345;
+        }
+
+        /* General Body and Layout */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, var(--bg-dark-blue), var(--bg-dark-purple));
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Starfield Canvas */
+        #starfield-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+        }
+
+        /* Header and Navigation (from main page) */
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(16, 16, 26, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.25rem;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-shadow: 0 0 10px var(--accent-green);
+            transition: all 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px var(--accent-green);
+        }
+        .nav-link {
+            font-weight: 600;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-purple));
+            transition: width 0.3s ease-out, left 0.3s ease-out;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Common Section Styles (from main page) */
+        .section {
+            padding: 8rem 1.5rem;
+        }
+        .section-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(0, 255, 200, 0.2);
+        }
+
+        /* Gallery Grid Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: filter 0.3s ease;
+        }
+        .gallery-item:hover img {
+            filter: brightness(0.7);
+        }
+
+        /* Lightbox for full-screen image view */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding: 1rem;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+        }
+        .lightbox-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: var(--accent-green);
+        }
+
+        /* Footer (from main page) */
+        footer {
+            background-color: #1a1a25;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-top: 2px solid;
+            border-image: linear-gradient(to right, var(--accent-green), var(--accent-purple)) 1;
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
+            margin-top: auto;
+        }
+        footer p {
+            color: var(--text-light);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+        }
+        .social-link {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .social-link img {
+            filter: invert(100%) drop-shadow(0 0 5px var(--accent-green));
+        }
+        .social-link:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 15px var(--accent-green));
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starfield-canvas"></canvas>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header>
+            <div class="container mx-auto flex justify-between items-center py-4 px-6 md:px-0">
+                <div class="logo">PREM SAH</div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Me</a>
+                    <a href="skills.html" class="nav-link">Skills</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <button class="md:hidden text-white text-2xl focus:outline-none">&#9776;</button>
+            </div>
+        </header>
+
+        <main class="section">
+            <div class="container mx-auto">
+                <h1 class="section-heading">
+                    Moments in Time 💎💫
+                </h1>
+                <p class="text-center text-lg max-w-2xl mx-auto mb-12">
+                    This is where I collect the tiny pieces of my life—the moments, the memories, and the dreams—that come together to tell my story. 🖼️
+                </p>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('images/gallery/image1.jpg')">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\bhatm.jpg">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('images/gallery/image2.jpg')">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\garba.jpg">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('images/gallery/image3.jpg')">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\uey.jpg"alt="Description of image 3">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('images/gallery/image4.jpg')">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\jap.jpg" alt="Description of image 4">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('images/gallery/image5.jpg')">
+                        <img src=C:\Users\HP\OneDrive\Desktop\PREM\images\jss.jpg alt="Description of image 5">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('images/gallery/image6.jpg')">
+                        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\RR.jpg" alt="Description of image 6">
+                    </div>
+                <div class="gallery-item" onclick="openLightbox('images/gallery/image7.jpg')">
+        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\sy.jpg" alt="Description of image 7">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('images/gallery/image8.jpg')">
+        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\inducion.jpg" alt="Description of image 8">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('images/gallery/image9.jpg')">
+        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\Ann.jpg" alt="Description of image 9">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('images/gallery/image10.jpg')">
+        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\college.jpg" alt="Description of image 10">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('images/gallery/image11.jpg')">
+        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\fys.jpg" alt="Description of image 11">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('images/gallery/image12.jpg')">
+        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\pat.jpg" alt="Description of image 12">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('images/gallery/image13.jpg')">
+        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\by.jpg" alt="Description of image 13">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('images/gallery/image14.jpg')">
+        <img src="C:\Users\HP\OneDrive\Desktop\PREM\images\ccc.jpg" alt="Description of image 14">
+    </div>
+</div>
+        </main>
+
+        <div id="myLightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close-btn">&times;</span>
+            <div class="lightbox-content">
+                <img id="lightboxImage" src="" alt="">
+            </div>
+        </div>
+
+        <footer>
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
+                <p>&copy; 2024 PREM SAH. All rights reserved.</p>
+                <div class="social-links mt-4 md:mt-0 flex gap-4">
+                    <a href="https://www.linkedin.com/in/prem-sah-882884279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                    <a href="https://www.instagram.com/premsah_003?igsh=OTk0aTJpN3VrMTNn" target="_blank" aria-label="Instagram" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                    <a href="https://www.facebook.com/prem.sah.260002" target="_blank" aria-label="Facebook" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            // Lightbox functions
+            function openLightbox(imageUrl) {
+                const lightbox = document.getElementById('myLightbox');
+                const lightboxImage = document.getElementById('lightboxImage');
+                lightbox.style.display = 'flex';
+                lightboxImage.src = imageUrl;
+            }
+
+            function closeLightbox() {
+                const lightbox = document.getElementById('myLightbox');
+                lightbox.style.display = 'none';
+            }
+
+            // Close the lightbox if the user clicks outside the image
+            window.onclick = function(event) {
+                const lightbox = document.getElementById('myLightbox');
+                if (event.target === lightbox) {
+                    lightbox.style.display = 'none';
+                }
+            }
+
+            // Starfield Animation
+            const canvas = document.getElementById('starfield-canvas');
+            const ctx = canvas.getContext('2d');
+            const stars = [];
+            const numStars = 500;
+            const starSpeed = 0.5;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            function createStars() {
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        size: Math.random() * 2,
+                        speed: Math.random() * starSpeed + 0.1,
+                        color: `rgba(255, 255, 255, ${Math.random() * 0.8 + 0.2})`
+                    });
+                }
+            }
+
+            function drawStars() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                stars.forEach(star => {
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                    ctx.fillStyle = star.color;
+                    ctx.fill();
+                });
+            }
+
+            function updateStars() {
+                stars.forEach(star => {
+                    star.x -= star.speed;
+                    if (star.x < 0) {
+                        star.x = canvas.width;
+                        star.y = Math.random() * canvas.height;
+                    }
+                });
+            }
+
+            function animate() {
+                updateStars();
+                drawStars();
+                requestAnimationFrame(animate);
+            }
+
+            resizeCanvas();
+            createStars();
+            animate();
+
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                stars.length = 0;
+                createStars();
+            });
+
+            // Highlight active navigation link
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPath = window.location.pathname.split('/').pop();
+
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref && linkHref.includes(currentPath)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
