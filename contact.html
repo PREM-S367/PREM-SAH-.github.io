@@ -288,7 +288,7 @@
                     <a href="skills.html" class="nav-link">Skills</a>
                     <a href="projects.html" class="nav-link">Projects</a>
                     <a href="gallery.html" class="nav-link">Gallery</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
                 </nav>
                 <button class="md:hidden text-white text-2xl focus:outline-none">&#9776;</button>
             </div>
@@ -404,7 +404,7 @@
                 const currentPath = window.location.pathname.split('/').pop();
 
                 navLinks.forEach(link => {
-                    if (link.href.includes(currentPath)) {
+                    if (link.href.includes(currentPath) || (currentPath === '' && link.href.includes('index.html'))) {
                         link.classList.add('active');
                     } else {
                         link.classList.remove('active');
