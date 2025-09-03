@@ -1,420 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PREM SAH - Contact</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&family=Cutive+Mono&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREM SAH - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&family=Cutive+Mono&display=swap');
 
-        :root {
-            --bg-dark-blue: #10102a;
-            --bg-dark-purple: #25103a;
-            --bg-card: #1c1c27;
-            --text-light: #e0e0e0;
-            --accent-green: #00ffc8;
-            --accent-purple: #952aff;
-            --border-subtle: #333345;
-        }
+        :root {
+            --bg-dark-blue: #10102a;
+            --bg-dark-purple: #25103a;
+            --bg-card: #1c1c27;
+            --text-light: #e0e0e0;
+            --accent-green: #00ffc8;
+            --accent-purple: #952aff;
+            --border-subtle: #333345;
+        }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, var(--bg-dark-blue), var(--bg-dark-purple));
-            color: var(--text-light);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, var(--bg-dark-blue), var(--bg-dark-purple));
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-        header {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            background-color: rgba(16, 16, 26, 0.8);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            padding: 1rem 0;
-        }
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(16, 16, 26, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+        }
 
-        .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.25rem;
-            letter-spacing: 2px;
-            color: var(--accent-green);
-            text-shadow: 0 0 10px var(--accent-green);
-            transition: all 0.3s ease;
-        }
-        .logo:hover {
-            transform: scale(1.05);
-            text-shadow: 0 0 20px var(--accent-green);
-        }
-        .nav-link {
-            font-weight: 600;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-purple));
-            transition: width 0.3s ease-out, left 0.3s ease-out;
-        }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-            left: 0;
-        }
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.25rem;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            text-shadow: 0 0 10px var(--accent-green);
+            transition: all 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px var(--accent-green);
+        }
+        .nav-link {
+            font-weight: 600;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-purple));
+            transition: width 0.3s ease-out, left 0.3s ease-out;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+            left: 0;
+        }
 
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding-top: 5rem;
-            min-height: 100vh;
-        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 5rem;
+            min-height: 100vh;
+        }
 
-        .content-area {
-            flex: 1;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+        .content-area {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-        .tagline {
-            font-family: 'Cutive Mono', monospace;
-            font-size: 1.25rem;
-            color: var(--accent-green);
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
+        .tagline {
+            font-family: 'Cutive Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--accent-green);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
 
-        .main-heading {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(3rem, 10vw, 6rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
-            animation: text-glow 2s ease-in-out infinite alternate;
-        }
+        .main-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+            animation: text-glow 2s ease-in-out infinite alternate;
+        }
 
-        @keyframes text-glow {
-            from { text-shadow: 0 0 10px rgba(0, 255, 200, 0.4), 0 0 20px rgba(149, 42, 255, 0.2); }
-            to { text-shadow: 0 0 20px rgba(0, 255, 200, 0.6), 0 0 40px rgba(149, 42, 255, 0.4); }
-        }
+        @keyframes text-glow {
+            from { text-shadow: 0 0 10px rgba(0, 255, 200, 0.4), 0 0 20px rgba(149, 42, 255, 0.2); }
+            to { text-shadow: 0 0 20px rgba(0, 255, 200, 0.6), 0 0 40px rgba(149, 42, 255, 0.4); }
+        }
 
-        .sub-text {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            max-width: 600px;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
+        .sub-text {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 600px;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
 
-        .image-area {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
+        .image-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
 
-        .photo-frame {
-            width: 100%;
-            max-width: 600px;
-            aspect-ratio: 1 / 1;
-            border-radius: 50%;
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 0 40px rgba(0, 255, 200, 0.5), inset 0 0 20px rgba(149, 42, 255, 0.3);
-            border: 4px solid var(--accent-green);
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            animation: border-pulse 4s infinite ease-in-out;
-        }
+        .photo-frame {
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 40px rgba(0, 255, 200, 0.5), inset 0 0 20px rgba(149, 42, 255, 0.3);
+            border: 4px solid var(--accent-green);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: border-pulse 4s infinite ease-in-out;
+        }
 
-        .photo-frame:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
 
-        @keyframes border-pulse {
-            0%, 100% { border-color: var(--accent-green); box-shadow: 0 0 30px var(--accent-green); }
-            50% { border-color: var(--accent-purple); box-shadow: 0 0 30px var(--accent-purple); }
-        }
+        @keyframes border-pulse {
+            0%, 100% { border-color: var(--accent-green); box-shadow: 0 0 30px var(--accent-green); }
+            50% { border-color: var(--accent-purple); box-shadow: 0 0 30px var(--accent-purple); }
+        }
 
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: filter 0.5s ease;
-        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: filter 0.5s ease;
+        }
 
-        .photo-frame:hover img {
-            filter: grayscale(100%) contrast(1.2);
-        }
+        .photo-frame:hover img {
+            filter: grayscale(100%) contrast(1.2);
+        }
 
-        .btn {
-            padding: 0.75rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+        .btn {
+            padding: 0.75rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-        .btn-primary {
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
-            color: var(--bg-dark);
-            border: none;
-        }
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        }
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+            color: var(--bg-dark);
+            border: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
 
-        .section {
-            padding: 8rem 1.5rem;
-        }
-        .section-heading {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2rem, 5vw, 4rem);
-            letter-spacing: 2px;
-            margin-bottom: 2rem;
-            text-align: center;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(0, 255, 200, 0.2);
-        }
-        .card {
-            background-color: var(--bg-card);
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--border-subtle);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-        }
+        .section {
+            padding: 8rem 1.5rem;
+        }
+        .section-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(0, 255, 200, 0.2);
+        }
+        .card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
 
-        footer {
-            background-color: #1a1a25; /* Slightly darker solid background */
-            padding: 1.5rem 0;
-            text-align: center;
-            border-top: 2px solid; /* Make the border more prominent */
-            border-image: linear-gradient(to right, var(--accent-green), var(--accent-purple)) 1; /* Add a glowing gradient border */
-            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
-            margin-top: auto;
-        }
-        footer p {
-            color: var(--text-light); /* Ensure text is the light color */
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Subtle text shadow */
-        }
-        .social-link {
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        .social-link img {
-            filter: invert(100%) drop-shadow(0 0 5px var(--accent-green)); /* Add a drop shadow to make icons glow */
-        }
-        .social-link:hover {
-            transform: scale(1.2);
-            filter: drop-shadow(0 0 15px var(--accent-green));
-        }
+        footer {
+            background-color: #1a1a25; /* Slightly darker solid background */
+            padding: 1.5rem 0;
+            text-align: center;
+            border-top: 2px solid; /* Make the border more prominent */
+            border-image: linear-gradient(to right, var(--accent-green), var(--accent-purple)) 1; /* Add a glowing gradient border */
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+            margin-top: auto;
+        }
+        footer p {
+            color: var(--text-light); /* Ensure text is the light color */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Subtle text shadow */
+        }
+        .social-link {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .social-link img {
+            filter: invert(100%) drop-shadow(0 0 5px var(--accent-green)); /* Add a drop shadow to make icons glow */
+        }
+        .social-link:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 15px var(--accent-green));
+        }
 
-        /* Starfield Canvas */
-        #starfield-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-        }
+        /* Starfield Canvas */
+        #starfield-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+        }
 
-        @media (min-width: 1024px) {
-            .main-content {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                gap: 2rem;
-            }
-            .content-area, .image-area {
-                padding: 0;
-                align-items: flex-start;
-                text-align: left;
-            }
-            .main-heading {
-                text-align: left;
-            }
-            .sub-text {
-                margin: 0;
-            }
-            .action-buttons {
-                justify-content: flex-start;
-            }
-        }
-    </style>
+        @media (min-width: 1024px) {
+            .main-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 2rem;
+            }
+            .content-area, .image-area {
+                padding: 0;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .main-heading {
+                text-align: left;
+            }
+            .sub-text {
+                margin: 0;
+            }
+            .action-buttons {
+                justify-content: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-    <canvas id="starfield-canvas"></canvas>
+    <canvas id="starfield-canvas"></canvas>
 
-    <div class="relative z-10 flex flex-col min-h-screen">
-        <header>
-            <div class="container mx-auto flex justify-between items-center py-4 px-6 md:px-0">
-                <div class="logo">PREM SAH</div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="about.html" class="nav-link">About Me</a>
-                    <a href="skills.html" class="nav-link">Skills</a>
-                    <a href="projects.html" class="nav-link">Projects</a>
-                    <a href="gallery.html" class="nav-link">Gallery</a>
-                    <a href="contact.html" class="nav-link active">Contact</a>
-                </nav>
-                <button class="md:hidden text-white text-2xl focus:outline-none">&#9776;</button>
-            </div>
-        </header>
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header>
+            <div class="container mx-auto flex justify-between items-center py-4 px-6 md:px-0">
+                <div class="logo">PREM SAH</div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Me</a>
+                    <a href="skills.html" class="nav-link">Skills</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </nav>
+                <button class="md:hidden text-white text-2xl focus:outline-none">&#9776;</button>
+            </div>
+        </header>
 
-        <section id="contact" class="section container mx-auto px-6 text-center">
-            <h2 class="section-heading">Get in Touch</h2>
-            <div class="max-w-xl mx-auto card p-8">
-                <p class="text-gray-400 mb-6">
-                    Ready to start a project? Or just want to say hello? Fill out the form below and I'll get back to you as soon as possible.
-                </p>
-                <form action="https://formspree.io/f/xanjbwyl" method="POST" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-left mb-2 text-accent-green">Your Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-gray-800 text-text-light border border-border-subtle focus:outline-none focus:ring-2 focus:ring-green-400 transition-shadow" placeholder="">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-left mb-2 text-accent-green">Email Address</label>
-                        <input type="email" id="email" name="_replyto" class="w-full px-4 py-3 rounded-lg bg-gray-800 text-text-light border border-border-subtle focus:outline-none focus:ring-2 focus:ring-green-400 transition-shadow" placeholder="">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-left mb-2 text-accent-green">Message</label>
-                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-gray-800 text-text-light border border-border-subtle focus:outline-none focus:ring-2 focus:ring-green-400 transition-shadow" placeholder=""></textarea>
-                    </div>
-                    <button type="submit" class="w-full btn btn-primary mt-4">Send Message</button>
-                </form>
-            </div>
-        </section>
+        <section id="contact" class="section container mx-auto px-6 text-center">
+            <h2 class="section-heading">Get in Touch</h2>
+            <div class="max-w-xl mx-auto card p-8">
+                <p class="text-gray-400 mb-6">
+                    Ready to start a project? Or just want to say hello? Fill out the form below and I'll get back to you as soon as possible.
+                </p>
+                <form action="https://formspree.io/f/xanjbwyl" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-left mb-2 text-accent-green">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-gray-800 text-text-light border border-border-subtle focus:outline-none focus:ring-2 focus:ring-green-400 transition-shadow" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-left mb-2 text-accent-green">Email Address</label>
+                        <input type="email" id="email" name="_replyto" class="w-full px-4 py-3 rounded-lg bg-gray-800 text-text-light border border-border-subtle focus:outline-none focus:ring-2 focus:ring-green-400 transition-shadow" placeholder="your.email@example.com" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-left mb-2 text-accent-green">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-gray-800 text-text-light border border-border-subtle focus:outline-none focus:ring-2 focus:ring-green-400 transition-shadow" placeholder="Your Message..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full btn btn-primary mt-4">Send Message</button>
+                </form>
+            </div>
+        </section>
 
-        <footer class="mt-auto">
-            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-                <p>&copy; 2024 PREM SAH. All rights reserved.</p>
-                <div class="social-links mt-4 md:mt-0 flex gap-4">
-                    <a href="https://www.linkedin.com/in/prem-sah-882884279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn" class="social-link">
-                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
-                    </a>
-                    <a href="https://www.instagram.com/premsah_003?igsh=OTk0aTJpN3VrMTNn" target="_blank" aria-label="Instagram" class="social-link">
-                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
-                    </a>
-                    <a href="https://www.facebook.com/prem.sah.260002" target="_blank" aria-label="Facebook" class="social-link">
-                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
-                    </a>
-                </div>
-            </div>
-        </footer>
-    </div>
-    
-    <script>
-        window.onload = function() {
-            const canvas = document.getElementById('starfield-canvas');
-            const ctx = canvas.getContext('2d');
-            const stars = [];
-            const numStars = 500;
-            const starSpeed = 0.5;
+        <footer class="mt-auto">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
+                <p>&copy; 2024 PREM SAH. All rights reserved.</p>
+                <div class="social-links mt-4 md:mt-0 flex gap-4">
+                    <a href="https://www.linkedin.com/in/prem-sah-882884279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                    <a href="https://www.instagram.com/premsah_003?igsh=OTk0aTJpN3VrMTNn" target="_blank" aria-label="Instagram" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                    <a href="https://www.facebook.com/prem.sah.260002" target="_blank" aria-label="Facebook" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24" height="24" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(36deg) brightness(100%) contrast(100%);" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            const canvas = document.getElementById('starfield-canvas');
+            const ctx = canvas.getContext('2d');
+            const stars = [];
+            const numStars = 500;
+            const starSpeed = 0.5;
 
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
 
-            function createStars() {
-                for (let i = 0; i < numStars; i++) {
-                    stars.push({
-                        x: Math.random() * canvas.width,
-                        y: Math.random() * canvas.height,
-                        size: Math.random() * 2,
-                        speed: Math.random() * starSpeed + 0.1,
-                        color: `rgba(255, 255, 255, ${Math.random() * 0.8 + 0.2})`
-                    });
-                }
-            }
+            function createStars() {
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        size: Math.random() * 2,
+                        speed: Math.random() * starSpeed + 0.1,
+                        color: `rgba(255, 255, 255, ${Math.random() * 0.8 + 0.2})`
+                    });
+                }
+            }
 
-            function drawStars() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                stars.forEach(star => {
-                    ctx.beginPath();
-                    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-                    ctx.fillStyle = star.color;
-                    ctx.fill();
-                });
-            }
+            function drawStars() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                stars.forEach(star => {
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                    ctx.fillStyle = star.color;
+                    ctx.fill();
+                });
+            }
 
-            function updateStars() {
-                stars.forEach(star => {
-                    star.x -= star.speed;
-                    if (star.x < 0) {
-                        star.x = canvas.width;
-                        star.y = Math.random() * canvas.height;
-                    }
-                });
-            }
+            function updateStars() {
+                stars.forEach(star => {
+                    star.x -= star.speed;
+                    if (star.x < 0) {
+                        star.x = canvas.width;
+                        star.y = Math.random() * canvas.height;
+                    }
+                });
+            }
 
-            function animate() {
-                updateStars();
-                drawStars();
-                requestAnimationFrame(animate);
-            }
+            function animate() {
+                updateStars();
+                drawStars();
+                requestAnimationFrame(animate);
+            }
 
-            resizeCanvas();
-            createStars();
-            animate();
+            resizeCanvas();
+            createStars();
+            animate();
 
-            window.addEventListener('resize', () => {
-                resizeCanvas();
-                // Re-create stars on resize to adjust to new dimensions
-                stars.length = 0;
-                createStars();
-            });
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                // Re-create stars on resize to adjust to new dimensions
+                stars.length = 0;
+                createStars();
+            });
 
-            // NEW CODE TO HIGHLIGHT THE ACTIVE PAGE
-            function highlightActiveLink() {
-                const navLinks = document.querySelectorAll('.nav-link');
-                const currentPath = window.location.pathname.split('/').pop();
+            // NEW CODE TO HIGHLIGHT THE ACTIVE PAGE
+            function highlightActiveLink() {
+                const navLinks = document.querySelectorAll('.nav-link');
+                const currentPath = window.location.pathname.split('/').pop();
 
-                navLinks.forEach(link => {
-                    if (link.href.includes(currentPath) || (currentPath === '' && link.href.includes('index.html'))) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            }
+                navLinks.forEach(link => {
+                    if (link.href.includes(currentPath) || (currentPath === '' && link.href.includes('index.html'))) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
 
-            // Call the new function when the page loads
-            highlightActiveLink();
-        };
-    </script>
+            // Call the new function when the page loads
+            highlightActiveLink();
+        };
+    </script>
 </body>
 </html>
