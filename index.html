@@ -1,366 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ✅ Google Search Console Verification -->
-    <meta name="google-site-verification" content="O_VMPeh-a3-QmtVGas_O3D1Km4YYofWy9n2QTKEGggg" />
-    <link rel="canonical" href="https://prem-sah.vercel.app/">
+  <!-- ✅ Page Title -->
+  <title>Prem Sah - Computer Engineer</title>
 
+  <!-- ✅ Canonical URL -->
+  <link rel="canonical" href="https://prem-sah.vercel.app/">
 
-    <!-- ✅ SEO Metadata -->
-    <title>Prem Sah - Computer Engineer</title>
-    <meta name="description" content="Prem Sah: Computer Engineer showcasing projects, skills, and contact information.">
-    <meta name="keywords" content="Prem Sah, Computer Engineer, Projects, Vercel, GitHub">
-    <meta name="author" content="Prem Sah">
+  <!-- ✅ Google Search Console Verification -->
+  <meta name="google-site-verification" content="O_VMPeh-a3-QmtVGas_O3D1Km4YYofWy9n2QTKEGggg" />
 
-    <!-- ✅ Open Graph for Google/LinkedIn/Facebook -->
-    <meta property="og:title" content="Prem Sah - Computer Engineer">
-    <meta property="og:description" content="Explore the portfolio of Prem Sah: web development projects, skills, and contact details.">
-    <meta property="og:image" content="https://prem-sah.vercel.app/abc.jpg">
-    <meta property="og:url" content="https://prem-sah.vercel.app/">
-    <meta property="og:type" content="website">
+  <!-- ✅ Basic SEO Metadata -->
+  <meta name="description" content="Prem Sah: Computer Engineer specializing in innovative solutions, technical expertise, and impactful project development.">
+  <meta name="author" content="Prem Sah">
 
-    <!-- ✅ Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Prem Sah - Computer Engineer">
-    <meta name="twitter:description" content="Explore the portfolio of Prem Sah: web development projects, skills, and contact details.">
-    <meta name="twitter:image" content="https://prem-sah.vercel.app/abc.jpg">
+  <!-- ✅ Open Graph (Google/LinkedIn/Facebook) -->
+  <meta property="og:title" content="Prem Sah - Computer Engineer">
+  <meta property="og:description" content="Explore the portfolio of Prem Sah: showcasing web development projects, technical skills, innovative solutions, and ways to connect.">
+  <meta property="og:image" content="https://prem-sah.vercel.app/abc.jpg">
+  <meta property="og:url" content="https://prem-sah.vercel.app/">
+  <meta property="og:type" content="website">
 
-    <!-- ✅ Favicon -->
-    <link rel="icon" href="https://prem-sah.vercel.app/favicon.ico" type="image/x-icon">
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prem Sah - Computer Engineer">
+  <meta name="twitter:description" content="Crafting code into impactful digital experiences — explore Prem Sah's journey in software engineering, innovative projects, and creative solutions.">
+  <meta name="twitter:image" content="https://prem-sah.vercel.app/abc.jpg">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Your existing CSS unchanged, no modifications here */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&family=Cutive+Mono&display=swap');
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="https://prem-sah.vercel.app/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://prem-sah.vercel.app/favicon.png" type="image/png">
 
-        :root {
-            --bg-dark: #10101a;
-            --bg-card: #1c1c27;
-            --text-light: #e0e0e0;
-            --accent-green: #00ffc8;
-            --accent-purple: #952aff;
-            --border-subtle: #333345;
-        }
+  <!-- ✅ Tailwind & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&family=Cutive+Mono&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+  <style>
+    :root {
+      --bg-dark: #10101a;
+      --bg-card: #1c1c27;
+      --text-light: #e0e0e0;
+      --accent-green: #00ffc8;
+      --accent-purple: #952aff;
+      --border-subtle: #333345;
+    }
 
-        header {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            background-color: rgba(16, 16, 26, 0.8);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            padding: 1rem 0;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-        .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.25rem;
-            letter-spacing: 2px;
-            color: var(--accent-green);
-            text-shadow: 0 0 10px var(--accent-green);
-            transition: all 0.3s ease;
-        }
-        .logo:hover {
-            transform: scale(1.05);
-            text-shadow: 0 0 20px var(--accent-green);
-        }
-        .nav-link {
-            font-weight: 600;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-purple));
-            transition: width 0.3s ease-out, left 0.3s ease-out;
-        }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-            left: 0;
-        }
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(16, 16, 26, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      padding: 1rem 0;
+    }
 
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding-top: 5rem;
-            min-height: 100vh;
-        }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.25rem;
+      letter-spacing: 2px;
+      color: var(--accent-green);
+      text-shadow: 0 0 10px var(--accent-green);
+      transition: all 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 20px var(--accent-green);
+    }
 
-        .content-area {
-            flex: 1;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+    .nav-link {
+      font-weight: 600;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background: linear-gradient(90deg, var(--accent-green), var(--accent-purple));
+      transition: width 0.3s ease-out, left 0.3s ease-out;
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+      left: 0;
+    }
 
-        .tagline {
-            font-family: 'Cutive Mono', monospace;
-            font-size: 1.25rem;
-            color: var(--accent-green);
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 5rem;
+      min-height: 100vh;
+    }
 
-        .main-heading {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(3rem, 10vw, 6rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
-            animation: text-glow 2s ease-in-out infinite alternate;
-        }
+    .content-area {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-        @keyframes text-glow {
-            from { text-shadow: 0 0 10px rgba(0, 255, 200, 0.4), 0 0 20px rgba(149, 42, 255, 0.2); }
-            to { text-shadow: 0 0 20px rgba(0, 255, 200, 0.6), 0 0 40px rgba(149, 42, 255, 0.4); }
-        }
+    .tagline {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 1.25rem;
+      color: var(--accent-green);
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
 
-        .sub-text {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            max-width: 600px;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
+    .main-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 10vw, 6rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+      animation: text-glow 2s ease-in-out infinite alternate;
+    }
 
-        .image-area {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
+    @keyframes text-glow {
+      from { text-shadow: 0 0 10px rgba(0, 255, 200, 0.4), 0 0 20px rgba(149, 42, 255, 0.2); }
+      to { text-shadow: 0 0 20px rgba(0, 255, 200, 0.6), 0 0 40px rgba(149, 42, 255, 0.4); }
+    }
 
-        .photo-frame {
-            width: 100%;
-            max-width: 1500px;
-            aspect-ratio: 3 / 4;
-            border-radius: 1rem;
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 0 50px rgba(0, 255, 200, 0.6),  
-                        inset 0 0 25px rgba(149, 42, 255, 0.4);
-            border: 5px solid var(--accent-green);
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            animation: border-pulse 4s infinite ease-in-out;
-        }
+    .sub-text {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      max-width: 600px;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
 
-        .photo-frame:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
+    .image-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
 
-        @keyframes border-pulse {
-            0%, 100% { border-color: var(--accent-green); box-shadow: 0 0 30px var(--accent-green); }
-            50% { border-color: var(--accent-purple); box-shadow: 0 0 30px var(--accent-purple); }
-        }
+    .photo-frame {
+      width: 100%;
+      max-width: 1500px;
+      aspect-ratio: 3 / 4;
+      border-radius: 1rem;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 50px rgba(0, 255, 200, 0.6),  
+                  inset 0 0 25px rgba(149, 42, 255, 0.4);
+      border: 5px solid var(--accent-green);
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: border-pulse 4s infinite ease-in-out;
+    }
 
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: filter 0.5s ease;
-        }
+    .photo-frame:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
 
-        .photo-frame:hover img {
-            filter: grayscale(100%) contrast(1.2);
-        }
+    @keyframes border-pulse {
+      0%, 100% { border-color: var(--accent-green); box-shadow: 0 0 30px var(--accent-green); }
+      50% { border-color: var(--accent-purple); box-shadow: 0 0 30px var(--accent-purple); }
+    }
 
-        .btn {
-            padding: 0.75rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.5s ease;
+    }
 
-        .btn-primary {
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
-            color: var(--bg-dark);
-            border: none;
-        }
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        }
+    .photo-frame:hover img {
+      filter: grayscale(100%) contrast(1.2);
+    }
 
-        .section {
-            padding: 8rem 1.5rem;
-        }
-        .section-heading {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2rem, 5vw, 4rem);
-            letter-spacing: 2px;
-            margin-bottom: 2rem;
-            text-align: center;
-            background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(0, 255, 200, 0.2);
-        }
-        .card {
-            background-color: var(--bg-card);
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--border-subtle);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-        }
+    footer {
+      background-color: var(--bg-card);
+      padding: 1.5rem 0;
+      text-align: center;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: auto;
+    }
 
-        footer {
-            background-color: var(--bg-card);
-            padding: 1.5rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border-subtle);
-            margin-top: auto;
-        }
-        .social-link {
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        .social-link:hover {
-            transform: scale(1.2);
-            filter: drop-shadow(0 0 10px var(--accent-green));
-        }
+    .social-link {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .social-link:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 10px var(--accent-green));
+    }
 
-        @media (min-width: 1024px) {
-            .main-content {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                gap: 2rem;
-            }
-            .content-area, .image-area {
-                padding: 0;
-                align-items: flex-start;
-                text-align: left;
-            }
-            .main-heading {
-                text-align: left;
-            }
-            .sub-text {
-                margin: 0;
-            }
-            .action-buttons {
-                justify-content: flex-start;
-            }
-        }
-        
-        #three-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-    </style>
+    @media (min-width: 1024px) {
+      .main-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+      }
+      .content-area, .image-area {
+        padding: 0;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .main-heading {
+        text-align: left;
+      }
+    }
+
+    #three-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
-    <canvas id="three-canvas"></canvas>
+  <canvas id="three-canvas"></canvas>
+  <div class="relative z-10">
 
-    <div class="relative z-10">
-
+    <!-- ✅ Header -->
     <header>
-        <div class="container mx-auto flex justify-between items-center py-4 px-6 md:px-0">
-            <div class="logo">PREM SAH</div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="about.html" class="nav-link">About Me</a>
-                <a href="skills.html" class="nav-link">Skills</a>
-                <a href="projects.html" class="nav-link">Projects</a>
-                <a href="gallery.html" class="nav-link">Gallery</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </nav>
-            <button class="md:hidden text-white text-2xl focus:outline-none">&#9776;</button>
-        </div>
+      <div class="container mx-auto flex justify-between items-center py-4 px-6 md:px-0">
+        <a href="index.html" class="logo">PREM SAH</a>
+        <nav class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="about.html" class="nav-link">About Me</a>
+          <a href="skills.html" class="nav-link">Skills</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <button class="md:hidden text-white text-2xl focus:outline-none">&#9776;</button>
+      </div>
     </header>
 
+    <!-- ✅ Main Section -->
     <main id="home" class="main-content container mx-auto px-6">
-        <div class="content-area">
-            <div class="tagline">Where Tech Meets Fun 😄</div>
-            <h1 class="main-heading">
-                Hey there, curious mind! 🔍 <span style="font-family: 'Bebas Neue', sans-serif;"></span>
-            </h1>
-            <section class="intro-text">
-                <p>
-                    I believe the world doesn’t change with ordinary — it changes with sparks ⚡. 
-                    Sparks of code 💻, sparks of ideas 💡, sparks of laughter 😂. 
-                    I’m here to light a few fires 🔥, burn away limitations 🚀, 
-                    and build something that leaves a mark ✨
-                </p>
-            </section>
-
-            <div class="action-buttons mt-8 flex flex-col sm:flex-row gap-4">
-                <a href="projects.html" class="btn btn-primary">View Projects</a>
-            </div>
+      <div class="content-area">
+        <div class="tagline">Where Tech Meets Fun 😄</div>
+        <h1 class="main-heading">Hey there, curious mind! 🔍</h1>
+        <section class="intro-text">
+          <p>
+            I believe the world doesn’t change with ordinary — it changes with sparks ⚡. 
+            Sparks of code 💻, sparks of ideas 💡, sparks of laughter 😂. 
+            I’m here to light a few fires 🔥, burn away limitations 🚀, 
+            and build something that leaves a mark ✨
+          </p>
+        </section>
+        <div class="action-buttons mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="projects.html" class="btn btn-primary">View Projects</a>
         </div>
+      </div>
 
-        <div class="image-area">
-            <div class="photo-frame">
-                <img src="abc.jpg" alt="Prem Sah - Web Developer Portfolio">
-            </div>
+      <div class="image-area">
+        <div class="photo-frame">
+          <img src="/abc.jpg" alt="Prem Sah - Web Developer Portfolio Picture">
         </div>
+      </div>
     </main>
 
+    <!-- ✅ Footer -->
     <footer>
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-            <p>&copy; 2024 PREM SAH. All rights reserved.</p>
-            <div class="social-links mt-4 md:mt-0 flex gap-4">
-                <a href="https://www.linkedin.com/in/prem-sah-882884279" target="_blank" aria-label="LinkedIn" class="social-link">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="24" height="24" style="filter: invert(100%)" />
-                </a>
-                <a href="https://www.instagram.com/premsah_003" target="_blank" aria-label="Instagram" class="social-link">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24" height="24" style="filter: invert(100%)" />
-                </a>
-                <a href="https://www.facebook.com/prem.sah.260002" target="_blank" aria-label="Facebook" class="social-link">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24" height="24" style="filter: invert(100%)" />
-                </a>
-            </div>
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
+        <p>&copy; 2024 PREM SAH. All rights reserved.</p>
+        <div class="social-links mt-4 md:mt-0 flex gap-4">
+          <a href="https://www.linkedin.com/in/prem-sah-882884279" target="_blank" aria-label="LinkedIn" class="social-link">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="24" height="24" style="filter: invert(100%)" />
+          </a>
+          <a href="https://www.instagram.com/premsah_003" target="_blank" aria-label="Instagram" class="social-link">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24" height="24" style="filter: invert(100%)" />
+          </a>
+          <a href="https://www.facebook.com/prem.sah.260002" target="_blank" aria-label="Facebook" class="social-link">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24" height="24" style="filter: invert(100%)" />
+          </a>
         </div>
+      </div>
     </footer>
-    </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        // your existing three.js animation code
-    </script>
+  </div>
+
+  <!-- ✅ Three.js Background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Example Three.js background (animated stars)
+    const canvas = document.getElementById("three-canvas");
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.position.z = 5;
+
+    const geometry = new THREE.BufferGeometry();
+    const vertices = [];
+    for (let i = 0; i < 2000; i++) {
+      vertices.push(THREE.MathUtils.randFloatSpread(2000)); 
+      vertices.push(THREE.MathUtils.randFloatSpread(2000)); 
+      vertices.push(THREE.MathUtils.randFloatSpread(2000));
+    }
+    geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
+    const material = new THREE.PointsMaterial({ color: 0x00ffc8, size: 2 });
+    const stars = new THREE.Points(geometry, material);
+    scene.add(stars);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      stars.rotation.x += 0.0005;
+      stars.rotation.y += 0.0005;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 </body>
 </html>
